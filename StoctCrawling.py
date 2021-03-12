@@ -11,6 +11,8 @@ data_head = [head.get_text() for head in stock_head]
 
 stock_list = soup.find("table", attrs={"class" : "type_2"}).find("tbody").findAll("tr")
 
+print(data_head)
 for stock in stock_list:
     if len(stock) > 1:
         print(stock.get_text().split())
+
