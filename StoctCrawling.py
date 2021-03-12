@@ -6,13 +6,14 @@ url = "https://finance.naver.com/sise/sise_market_sum.nhn?page=1"
 res = requests.get(url)
 soup = BeautifulSoup(res.text, 'lxml')
 
-stock_head = soup.find("thead").findAll("th")
-data_head = [head.get_text() for head in stock_head]
+StockHead = soup.find("thead").findAll("th")
+DateHead = [head.get_text() for head in StockHead]
 
-stock_list = soup.find("table", attrs={"class" : "type_2"}).find("tbody").findAll("tr")
+StockList = soup.find("table", attrs={"class" : "type_2"}).find("tbody").findAll("tr")
 
-print(data_head)
-for stock in stock_list:
-    if len(stock) > 1:
-        print(stock.get_text().split())
+print(DateHead)
+for Stock in StockList:
+    if len(Stock) > 1:
+        print(Stock.get_text().split())
+
 
